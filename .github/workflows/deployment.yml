@@ -27,6 +27,9 @@ jobs:
               run: npm test
   #job 2 both job 1 and job 2 will run parallely
     deploy:
+      #telling this job to run test job succesfully. if the "test job is successful then only it will run the deployment job"
+      #we can add multiple jobs by having it in sqauare bracket needs: [job1, job2, job3]
+      needs: test
       runs-on: ubuntu-latest
       steps:
             #step 1 name
