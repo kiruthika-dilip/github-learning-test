@@ -1,7 +1,7 @@
 #Workflow name
 name: Deploy Project 
 #workflow trigger or event
-on: push
+on: [push, workflow_dispatch]
 #jobs
 jobs:
     #job name first job
