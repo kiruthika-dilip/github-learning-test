@@ -1,6 +1,7 @@
 #Workflow name
 name: Deploy Project 
-#workflow trigger or event
+#workflow trigger or event. workflow_Dispatch event --> we need to trigger the workflow manually. 
+#once the code is push into repo, automatic event will trigger to run this workflow
 on: [push, workflow_dispatch]
 #jobs
 jobs:
