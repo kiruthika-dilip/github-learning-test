@@ -1,0 +1,49 @@
+#Workflow name
+name: Deploy Project 
+#workflow trigger or event
+on: push
+#jobs
+jobs:
+    #job name first job
+    test:
+        #runner machine which want your job to run on
+        runs-on: ubuntu-latest
+        #steps
+        steps:
+            #step 1 name
+            - name: Get Code
+            #action of downloading a code from repository to linux server or cloning the repo into the runner machine (linux server)
+              uses: actions/checkout@v4
+            #Step 2 name
+            - name: Install NodeJS
+            #actions for downloading node js
+              uses: actions/setup-node@v4
+              #with keyword is used to provide configuration, here we can define the node version
+              with:
+                node-version: 20
+            - name: Install dependencies
+              run: npm ci
+            - name: Run Tests
+              run: npm test
+  #job 2 both job 1 and job 2 will run parallely
+    deploy:
+      runs-on: ubuntu-latest
+      steps:
+            #step 1 name
+            - name: Get Code
+            #action of downloading a code from repository to linux server or cloning the repo into the runner machine (linux server)
+              uses: actions/checkout@v4
+            #Step 2 name
+            - name: Install NodeJS
+            #actions for downloading node js
+              uses: actions/setup-node@v4
+              #with keyword is used to provide configuration, here we can define the node version
+              with:
+                node-version: 20
+            - name: Install dependencies
+              run: npm ci
+            - name: Build Project
+            #running npm build cmnd to build the node project
+              run: npm run build
+            - name: Deploy
+              run: echo "Deploying....."
