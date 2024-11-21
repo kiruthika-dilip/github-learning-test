@@ -1,6 +1,6 @@
 #Workflow name
 name: Test Project 
-#workflow trigger or event
+#workflow trigger
 on: push
 #jobs
 jobs:
